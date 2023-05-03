@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include "labirint.h"
 
 int main() {

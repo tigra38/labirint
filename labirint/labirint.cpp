@@ -1,17 +1,17 @@
-#include "labirint.h"
+п»ї#include "labirint.h"
 #include <iostream>
 
-//Конструктор с параметрами
+//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 Labirint::Labirint(size_t n, size_t m) : n_(n), m_(m), startx_(0), starty_(0), endx_(0), endy_(0), matrix_(nullptr) {
-	//Создаем строки
+	//РЎРѕР·РґР°РµРј СЃС‚СЂРѕРєРё
 	matrix_ = new int* [n_];
 
-	//Создаем столбцы
+	//РЎРѕР·РґР°РµРј СЃС‚РѕР»Р±С†С‹
 	for (size_t i = 0; i < n_; ++i) {
 		matrix_[i] = new int[m_];
 	}
 
-	//Инициализируем значениями
+	//РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј Р·РЅР°С‡РµРЅРёСЏРјРё
 	for (size_t i = 0; i < n_; ++i) {
 		for (size_t j = 0; j < m_; ++j) {
 			matrix_[i][j] = 0;
@@ -22,9 +22,9 @@ Labirint::Labirint(size_t n, size_t m) : n_(n), m_(m), startx_(0), starty_(0), e
 }
 
 
-//Деструктор
+//Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Labirint::~Labirint() {
-	//Освобождаем место в куче
+	//РћСЃРІРѕР±РѕР¶РґР°РµРј РјРµСЃС‚Рѕ РІ РєСѓС‡Рµ
 	for (size_t i = 0; i < n_; ++i) {
 		delete[] matrix_[i];
 	}
@@ -32,7 +32,7 @@ Labirint::~Labirint() {
 	delete[] matrix_;
 }
 
-//Метод для генерации лабиринта
+//РњРµС‚РѕРґ РґР»СЏ РіРµРЅРµСЂР°С†РёРё Р»Р°Р±РёСЂРёРЅС‚Р°
 void Labirint::generate() {
 	matrix_[6][0] = 1;
 	matrix_[6][1] = 1;
@@ -50,19 +50,19 @@ void Labirint::generate() {
 	matrix_[3][6] = 1;
 }
 
-//Метод для вывод лабиринта
+//РњРµС‚РѕРґ РґР»СЏ РІС‹РІРѕРґ Р»Р°Р±РёСЂРёРЅС‚Р°
 void Labirint::show() {
 	std::cout << std::endl << std::endl;
-
-	//Инициализируем значениями
+	char c = 219;
+	//РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј Р·РЅР°С‡РµРЅРёСЏРјРё
 	for (size_t i = 0; i < n_; ++i) {
 		std::cout << "  ";
 		for (size_t j = 0; j < m_; ++j) {
 			if (matrix_[i][j] != 0) {
-				std::cout << "   ";
+				std::cout << "  ";
 			}
 			else {
-				std::cout << "|#|";
+				std::cout << c << c;
 			}
 		}
 		std::cout << std::endl;
