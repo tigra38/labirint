@@ -4,6 +4,7 @@
 //Конструктор с параметрами
 Labirint::Labirint(size_t n, size_t m) : n_(n), m_(m), startx_(0), starty_(0), endx_(0), endy_(0), matrix_(nullptr) {
 	//Создаем строки
+	root = nullptr;
 	matrix_ = new int* [n_];
 
 	//Создаем столбцы
@@ -28,7 +29,11 @@ Labirint::~Labirint() {
 	for (size_t i = 0; i < n_; ++i) {
 		delete[] matrix_[i];
 	}
+	if (root != nullptr)
+	{
+		delete root; // должны почистить за собой память
 
+	}
 	delete[] matrix_;
 }
 
@@ -41,11 +46,13 @@ void Labirint::generate() {
 	matrix_[3][1] = 1;
 	matrix_[2][1] = 1;
 	matrix_[2][2] = 1;
-	matrix_[2][3] = 1;
-	matrix_[3][3] = 1;
 	matrix_[4][3] = 1;
-	matrix_[4][4] = 1;
-	matrix_[4][5] = 1;
+	matrix_[3][3] = 1;
+	matrix_[3][2] = 1;
+	matrix_[4][2] = 1;
+	matrix_[2][3] = 1;
+	matrix_[2][4] = 1;
+	matrix_[2][5] = 1;
 	matrix_[3][5] = 1;
 	matrix_[3][6] = 1;
 }
@@ -66,10 +73,10 @@ void Labirint::show() {
 			}
 			else if ((i % 2) && (j % 2)) std::cout << w << w; //непроложенные трассы
 			else {
-				std::cout << g << g; //стены
+				std::cout << s << s; //стены
 			}
 		}
-		std::cout << g << g; //ограждение
+		std::cout << s << s; //ограждение
 		std::cout << std::endl;
 	}
 
