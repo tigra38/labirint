@@ -60,10 +60,10 @@ void Labirint::generate() {
 //Метод для вывод лабиринта
 void Labirint::show() {
 	std::cout << std::endl << std::endl;
-	char b = (int)32;
-	char w = (int)219;
-	char s = (int)176;
-	char g = (int)178;
+	char b = (int)32; //black (space)
+	char w = (int)219; //white
+	char s = (int)176; //semi-gray
+	char g = (int)178; //gray
 	//Инициализируем значениями
 	for (size_t i = 0; i < n_*2+1; ++i) {
 		std::cout << b << b; //отступ
