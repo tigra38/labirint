@@ -53,12 +53,30 @@ void Labirint::generate() {
 //Метод для вывод лабиринта
 void Labirint::show() {
 	std::cout << std::endl << std::endl;
-	char c = 219;
+	char b = (int)32;
+	char w = (int)219;
+	char s = (int)176;
+	char g = (int)178;
 	//Инициализируем значениями
-	for (size_t i = 0; i < n_; ++i) {
+	for (size_t i = 0; i < n_*2+1; ++i) {
+		std::cout << b << b; //отступ
+		for (size_t j = 0; j < m_*2; ++j) {
+			if ((i % 2) && (j % 2) && matrix_[i/2][j/2]) {
+				std::cout << b << b; //трасса
+			}
+			else if ((i % 2) && (j % 2)) std::cout << w << w; //непроложенные трассы
+			else {
+				std::cout << g << g; //стены
+			}
+		}
+		std::cout << g << g; //ограждение
+		std::cout << std::endl;
+	}
+
+	/*for (size_t i = 0; i < 2 * n_ + 1; ++i) {
 		std::cout << "  ";
-		for (size_t j = 0; j < m_; ++j) {
-			if (matrix_[i][j] != 0) {
+		for (size_t j = 0; j < 2 * m_ + 1; ++j) {
+			if (!(i % 2) && !(j % 2) && matrix_[i / 2][j / 2] != 0) {
 				std::cout << "  ";
 			}
 			else {
@@ -66,5 +84,5 @@ void Labirint::show() {
 			}
 		}
 		std::cout << std::endl;
-	}
+	}*/
 }
