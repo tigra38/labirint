@@ -1,8 +1,10 @@
 ﻿#include "labirint.h"
 #include <iostream>
+#include <ctime>
 
 //Конструктор с параметрами
-Labirint::Labirint(size_t n, size_t m) : n_(n), m_(m), startx_(0), starty_(0), endx_(0), endy_(0), matrix_(nullptr) {
+Labirint::Labirint(int n, int m) : n_(n), m_(m), startx_(0), starty_(0), endx_(0), endy_(0), matrix_(nullptr) {
+
 	//Создаем строки
 	root = nullptr;
 	matrix_ = new int* [n_];
@@ -19,7 +21,42 @@ Labirint::Labirint(size_t n, size_t m) : n_(n), m_(m), startx_(0), starty_(0), e
 		}
 	}
 
-	generate();
+   //Определяем коорднату начала с помощью генератора случайных чисел
+   //Устанавливаем точку отсчета генерации
+   srand(time(NULL));
+   
+   //Выбираем сначало случайным образом 0 или 1
+   //Это поможет выбрать вариант, когда x выбирается из двух вариантов 
+   //или y
+   int choose1 = rand() % 2;
+
+   if(choose1 == 0){
+      //Выбираем x из двух вариантов
+      int array[2];
+      array[0] = 0;
+      array[1] = n_ - 1;
+
+      int choose2 = rand() % 2;
+      //Координата начала равна
+      startx_ = array[choose2];
+      starty_ = rand() % m_;
+   }
+   else{
+      //Выбираем н из двух вариантов
+      int array[2];
+      array[0] = 0;
+      array[1] = m_ - 1;
+
+      int choose2 = rand() % 2;
+      //Координата начала равна
+      starty_ = array[choose2];
+      startx_ = rand() % n_;
+      
+   }
+
+   std::cout << "startx_ = " << startx_ << " starty_ = " << starty_ << std::endl; 
+
+	//generate();
 }
 
 

@@ -3,6 +3,6 @@
 
 int main() {
 	Labirint labirint(7, 7);
-	labirint.show();
+	//labirint.show();
 	return 0;
 }
