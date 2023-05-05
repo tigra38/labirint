@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include <cstddef>
+
 //Класс для лабиринта
 class Labirint {
     struct Node { // структура узла
