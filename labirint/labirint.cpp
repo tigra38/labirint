@@ -63,7 +63,7 @@ Labirint::Labirint(int _x, int _y) : length(_x), height(_y), startx_(0), starty_
 //Деструктор
 Labirint::~Labirint() {
 	//Освобождаем место в куче
-	/*for (size_t i = 0; i < length; ++i) {
+	for (size_t i = 0; i < length; ++i) {
 		delete[] matrix_[i];
 	}
 	if (root != nullptr)
@@ -71,7 +71,7 @@ Labirint::~Labirint() {
 		delete root; // должны почистить за собой память
 
 	}
-	delete[] matrix_;*/
+	delete[] matrix_;
 }
 
 //Метод для генерации лабиринта
