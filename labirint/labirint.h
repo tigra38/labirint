@@ -55,6 +55,6 @@ public:
 	int track_order = 0;
 
 private:
-	Node* root = nullptr;
+	Node* root;
 };
 
